@@ -27,5 +27,8 @@ public class RealItemTest {
         String actualResult = realItemTest.toString();
 
         Assertions.assertEquals(expectedResults,actualResult);
+
+        System.out.printf("Expected result = %s \n",expectedResults);
+        System.out.printf("Actual result = %s", expectedResults);
     }
 }
