@@ -12,10 +12,9 @@ import java.io.File;
 public class CartTest {
     private static final double TAX = 0.2;
 
-    private static File andrewCartFile = new File("src/main/resources/andrew-cart.json");
+    private static final File andrewCartFile = new File("src/main/resources/andrew-cart.json");
     private static RealItem realItem;
     private static VirtualItem virtualItem;
-    private static Gson gson;
     private static Faker faker;
 
     @BeforeAll
@@ -30,7 +29,6 @@ public class CartTest {
         virtualItem.setPrice(1.5);
         virtualItem.setSizeOnDisk(130.5);
 
-        gson = new Gson();
         faker = new Faker();
     }
 
@@ -57,7 +55,8 @@ public class CartTest {
         Assertions.assertAll(() -> {
             Assertions.assertEquals(actualRealItemName, expectedRealItemName);
             Assertions.assertEquals(actualVirtualItemName, expectedVirtualItemName);
-            Assertions.assertFalse(actualRealItemName.contains(expectedVirtualItemName), "not matched strings");
+            Assertions.assertFalse(actualRealItemName.contains(expectedVirtualItemName),
+                    "expectedVirtualItemName is not contains in actualRealItemName");
         });
     }
 }
