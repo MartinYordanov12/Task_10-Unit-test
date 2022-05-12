@@ -7,12 +7,12 @@ public class VirtualItemTest {
     private static VirtualItem virtualItemTest;
 
     @BeforeAll
-    public static void VirtualItemTest(){
+    public static void VirtualItem() {
         virtualItemTest = new VirtualItem();
     }
 
     @Test
-    public void createVirtualItemTest(){
+    public void createVirtualItemTest() {
         String expectedResult = String
                 .format("Class: %s; Name: %s; Price: %s; Size on disk: %s",
                         virtualItemTest.getClass(),
@@ -26,7 +26,7 @@ public class VirtualItemTest {
 
         String actualResult = virtualItemTest.toString();
 
-        Assertions.assertEquals(expectedResult,actualResult);
+        Assertions.assertEquals(expectedResult, actualResult);
 
         System.out.printf("Expected result = %s \n", expectedResult);
         System.out.printf("Actual result = %s", actualResult);

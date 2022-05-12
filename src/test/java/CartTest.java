@@ -8,7 +8,6 @@ import shop.RealItem;
 import shop.VirtualItem;
 
 import java.io.File;
-import java.nio.charset.StandardCharsets;
 
 public class CartTest {
     private static final double TAX = 0.2;
@@ -20,48 +19,45 @@ public class CartTest {
     private static Faker faker;
 
     @BeforeAll
-    public static void createRealAndVirtualItems(){
-    realItem = new RealItem();
-    realItem.setName("Garrett Turbo");
-    realItem.setPrice(12000);
-    realItem.setWeight(8.5);
+    public static void createRealAndVirtualItems() {
+        realItem = new RealItem();
+        realItem.setName("Garrett Turbo");
+        realItem.setPrice(12000);
+        realItem.setWeight(8.5);
 
-    virtualItem = new VirtualItem();
-    virtualItem.setName("iOS Safari");
-    virtualItem.setPrice(1.5);
-    virtualItem.setSizeOnDisk(130.5);
+        virtualItem = new VirtualItem();
+        virtualItem.setName("iOS Safari");
+        virtualItem.setPrice(1.5);
+        virtualItem.setSizeOnDisk(130.5);
 
-    gson = new Gson();
-    faker = new Faker();
+        gson = new Gson();
+        faker = new Faker();
     }
 
     @Test
-    void getTotalPriceTest(){
+    void getTotalPriceTest() {
         Cart cart = new Cart(faker.name().firstName());
         double priceBeforeAdding = cart.getTotalPrice();
         cart.addRealItem(realItem);
-        double itemTotalPriceCalc = realItem.getPrice() + realItem.getPrice()*TAX;
+        double itemTotalPriceCalc = realItem.getPrice() + realItem.getPrice() * TAX;
         double expectedPrice = priceBeforeAdding + itemTotalPriceCalc;
         double actualPrice = cart.getTotalPrice();
 
-        Assertions.assertEquals(expectedPrice,actualPrice);
+        Assertions.assertEquals(expectedPrice, actualPrice);
     }
 
     @Test
-    void getCartRealItemAndVirtualNameTest(){
+    void getCartRealItemAndVirtualNameTest() {
         Cart cartRealItem = new Cart(realItem.getName());
         Cart cartVirtualItem = new Cart(virtualItem.getName());
         String actualRealItemName = cartRealItem.getCartName();
         String actualVirtualItemName = cartVirtualItem.getCartName();
         String expectedRealItemName = realItem.getName();
         String expectedVirtualItemName = virtualItem.getName();
-        Assertions.assertAll(()->{
-            Assertions.assertEquals(actualRealItemName,expectedRealItemName);
-            Assertions.assertEquals(actualVirtualItemName,expectedVirtualItemName);
-            Assertions.assertFalse(actualRealItemName.contains(expectedVirtualItemName),"not matched strings");
+        Assertions.assertAll(() -> {
+            Assertions.assertEquals(actualRealItemName, expectedRealItemName);
+            Assertions.assertEquals(actualVirtualItemName, expectedVirtualItemName);
+            Assertions.assertFalse(actualRealItemName.contains(expectedVirtualItemName), "not matched strings");
         });
-
     }
-
-
 }

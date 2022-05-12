@@ -7,12 +7,12 @@ public class RealItemTest {
     private static RealItem realItemTest;
 
     @BeforeAll
-    public static void createRealItemInstance(){
+    public static void createRealItemInstance() {
         realItemTest = new RealItem();
     }
 
     @Test
-    public void createRealItemTest(){
+    public void createRealItemTest() {
         String expectedResults = String
                 .format("Class: %s; Name: %s; Price: %s; Weight: %s",
                         realItemTest.getClass(),
@@ -26,9 +26,9 @@ public class RealItemTest {
 
         String actualResult = realItemTest.toString();
 
-        Assertions.assertEquals(expectedResults,actualResult);
+        Assertions.assertEquals(expectedResults, actualResult);
 
-        System.out.printf("Expected result = %s \n",expectedResults);
+        System.out.printf("Expected result = %s \n", expectedResults);
         System.out.printf("Actual result = %s", expectedResults);
     }
 }
