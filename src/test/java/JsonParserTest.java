@@ -27,6 +27,7 @@ public class JsonParserTest {
         classLoader = JsonParserTest.class.getClassLoader();
         faker = new Faker();
     }
+
     @Nested
     class ExceptionTests {
         @ParameterizedTest
@@ -54,5 +55,4 @@ public class JsonParserTest {
             });
         }
     }
-
 }
