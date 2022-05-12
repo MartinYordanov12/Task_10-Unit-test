@@ -1,5 +1,6 @@
 import com.github.javafaker.Faker;
 import com.google.gson.Gson;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
@@ -11,7 +12,11 @@ import parser.NoSuchFileException;
 
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class JsonParserTest {
@@ -47,6 +52,14 @@ public class JsonParserTest {
             assertThrows(NoSuchFileException.class, () -> {
                 jsonParser.readFromFile(input);
             });
+        }
+
+        @Test
+        public void readFromFile() throws IOException {
+
+            Path fileName = Path.of("C:\\Users\\MartinYordanov\\Desktop\\UnitTesting-master\\src\\main\\resources\\andrew-cart.json");
+            String str = Files.readString(fileName);
+            Assertions.assertTrue(str.contains("Audi") && str.contains("Windows"));
         }
     }
 }
