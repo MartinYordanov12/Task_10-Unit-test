@@ -16,16 +16,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class JsonParserTest {
     private static JsonParser jsonParser;
-    private static Gson gson;
-    private static ClassLoader classLoader;
-    private static Faker faker;
 
     @BeforeAll
     public static void initiateJsonParserObject() {
         jsonParser = new JsonParser();
-        gson = new Gson();
-        classLoader = JsonParserTest.class.getClassLoader();
-        faker = new Faker();
     }
 
     @Nested
