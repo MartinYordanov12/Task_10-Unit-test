@@ -61,5 +61,13 @@ public class JsonParserTest {
             String str = Files.readString(fileName);
             Assertions.assertTrue(str.contains("Audi") && str.contains("Windows"));
         }
+
+        @Test
+        public void writeToFile() throws IOException{
+            Path fileName = Path.of("src/main/resources/andrew-cart.json");
+            String str = Files.readString(fileName);
+            str = str + "checking if writeToFile method works";
+            Assertions.assertTrue(str.contains("checking if writeToFile method works"));
+        }
     }
 }
