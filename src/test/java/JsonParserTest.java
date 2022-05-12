@@ -57,7 +57,7 @@ public class JsonParserTest {
         @Test
         public void readFromFile() throws IOException {
 
-            Path fileName = Path.of("C:\\Users\\MartinYordanov\\Desktop\\UnitTesting-master\\src\\main\\resources\\andrew-cart.json");
+            Path fileName = Path.of("src/main/resources/andrew-cart.json");
             String str = Files.readString(fileName);
             Assertions.assertTrue(str.contains("Audi") && str.contains("Windows"));
         }
