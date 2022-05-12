@@ -1,5 +1,4 @@
 import com.github.javafaker.Faker;
-import com.google.gson.Gson;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -7,12 +6,10 @@ import shop.Cart;
 import shop.RealItem;
 import shop.VirtualItem;
 
-import java.io.File;
 
 public class CartTest {
     private static final double TAX = 0.2;
 
-    private static final File andrewCartFile = new File("src/main/resources/andrew-cart.json");
     private static RealItem realItem;
     private static VirtualItem virtualItem;
     private static Faker faker;
