@@ -31,13 +31,13 @@ public class JsonParserTest {
     class ExceptionTests {
         @ParameterizedTest
         @ValueSource(strings = {
-                "src/main/resources/File.file",
-                "src/main/resources/File",
-                "",
+                "src/main/resources/Json",
+
                 "src/main/resources/eugen-cart.JPEG",
                 "src/main/resources/andrew-cart.JPEG",
                 "src/main/resources/eugen-cart",
-                "src/main/resources/andrew-cart"
+                "src/main/resources/andrew-cart",
+                ""
         })
         public void noSuchFileExceptionTest(String input) {
             assertThrows(NoSuchFileException.class, () -> {
