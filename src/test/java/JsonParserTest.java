@@ -32,7 +32,6 @@ public class JsonParserTest {
         @ParameterizedTest
         @ValueSource(strings = {
                 "src/main/resources/Json",
-
                 "src/main/resources/eugen-cart.JPEG",
                 "src/main/resources/andrew-cart.JPEG",
                 "src/main/resources/eugen-cart",
@@ -63,7 +62,7 @@ public class JsonParserTest {
         }
 
         @Test
-        public void writeToFile() throws IOException{
+        public void writeToFile() throws IOException {
             Path fileName = Path.of("src/main/resources/andrew-cart.json");
             String str = Files.readString(fileName);
             str = str + "checking if writeToFile method works";
