@@ -48,7 +48,7 @@ public class CartTest {
     }
 
     @Test
-    void getCartRealItemAndVirtualName(){
+    void getCartRealItemAndVirtualNameTest(){
         Cart cartRealItem = new Cart(realItem.getName());
         Cart cartVirtualItem = new Cart(virtualItem.getName());
         String actualRealItemName = cartRealItem.getCartName();
